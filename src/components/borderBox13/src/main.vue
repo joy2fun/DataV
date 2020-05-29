@@ -4,6 +4,7 @@
       <path
         :fill="backgroundColor"
         :stroke="mergedColor[0]"
+        :stroke-width="borderWidth"
         :d="`
           M 5 20 L 5 10 L 12 3  L 60 3 L 68 10
           L ${width - 20} 10 L ${width - 5} 25
@@ -24,12 +25,14 @@
       <path
         fill="transparent"
         :stroke="mergedColor[1]"
+        :stroke-width="cornerBorderWidth"
         :d="`M 5 20 L 5 10 L 12 3  L 60 3 L 68 10`"
       />
 
       <path
         fill="transparent"
         :stroke="mergedColor[1]"
+        :stroke-width="cornerBorderWidth"
         :d="`M ${width - 5} ${height - 30} L ${width - 5} ${height - 5} L ${width - 30} ${height - 5}`"
       />
     </svg>
@@ -58,7 +61,15 @@ export default {
     backgroundColor: {
       type: String,
       default: 'transparent'
-    }
+    },
+    cornerBorderWidth: {
+      type: String,
+      default: '2'
+    },
+    borderWidth: {
+      type: String,
+      default: '1'
+    },
   },
   data () {
     return {
