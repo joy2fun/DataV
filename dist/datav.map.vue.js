@@ -5030,16 +5030,24 @@
         default: 'transparent'
       },
       backgroundColorOpacity: {
-        type: String,
-        default: '1'
+        type: Number,
+        default: 1
       },
       cornerBorderWidth: {
-        type: String,
-        default: '2'
+        type: Number,
+        default: 2
       },
       borderWidth: {
+        type: Number,
+        default: 1
+      },
+      dashArray: {
         type: String,
-        default: '1'
+        default: "10, 5"
+      },
+      dashWidth: {
+        type: Number,
+        default: 61
       }
     },
 
@@ -5103,7 +5111,11 @@
               stroke: _vm.mergedColor[0],
               "stroke-width": _vm.borderWidth,
               d:
-                "\n        M 5 20 L 5 10 L 12 3  L 60 3 L 68 10\n        L " +
+                "\n        M 5 20 L 5 10 L 12 3  L " +
+                (_vm.cornerBorderWidth * 10 + 50) +
+                " 3 L " +
+                (_vm.cornerBorderWidth * 10 + 58) +
+                " 10\n        L " +
                 (_vm.width - 20) +
                 " 10 L " +
                 (_vm.width - 5) +
@@ -5122,11 +5134,17 @@
           _c("path", {
             attrs: {
               fill: "transparent",
-              "stroke-width": "3",
               "stroke-linecap": "round",
-              "stroke-dasharray": "10, 5",
+              "stroke-width": "" + (_vm.cornerBorderWidth / 2 + 2),
+              "stroke-dasharray": _vm.dashArray,
               stroke: _vm.mergedColor[0],
-              d: "M 16 9 L 61 9"
+              d:
+                "M 16 " +
+                (_vm.cornerBorderWidth * 1 + 9) +
+                " L " +
+                _vm.dashWidth +
+                " " +
+                (_vm.cornerBorderWidth * 1 + 9)
             }
           }),
           _vm._v(" "),
@@ -5135,7 +5153,12 @@
               fill: "transparent",
               stroke: _vm.mergedColor[1],
               "stroke-width": _vm.cornerBorderWidth,
-              d: "M 5 20 L 5 10 L 12 3  L 60 3 L 68 10"
+              d:
+                "M 5 20 L 5 10 L 12 3  L " +
+                (_vm.cornerBorderWidth * 10 + 50) +
+                " 3 L " +
+                (_vm.cornerBorderWidth * 10 + 58) +
+                " 10"
             }
           }),
           _vm._v(" "),
@@ -5171,7 +5194,7 @@
     /* style */
     const __vue_inject_styles__$e = function (inject) {
       if (!inject) return
-      inject("data-v-02bdb7ec_0", { source: ".dv-border-box-13 {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.dv-border-box-13 .dv-border-svg-container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0px;\n}\n.dv-border-box-13 .border-box-content {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n", map: {"version":3,"sources":["main.vue"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;AACd;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,QAAQ;EACR,SAAS;AACX;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;AACd","file":"main.vue","sourcesContent":[".dv-border-box-13 {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.dv-border-box-13 .dv-border-svg-container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0px;\n}\n.dv-border-box-13 .border-box-content {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n"]}, media: undefined });
+      inject("data-v-2069081c_0", { source: ".dv-border-box-13 {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.dv-border-box-13 .dv-border-svg-container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0px;\n}\n.dv-border-box-13 .border-box-content {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n", map: {"version":3,"sources":["main.vue"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;AACd;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,QAAQ;EACR,SAAS;AACX;AACA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;AACd","file":"main.vue","sourcesContent":[".dv-border-box-13 {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.dv-border-box-13 .dv-border-svg-container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0px;\n  left: 0px;\n}\n.dv-border-box-13 .border-box-content {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n"]}, media: undefined });
 
     };
     /* scoped */

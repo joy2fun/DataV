@@ -7,7 +7,7 @@
         :stroke="mergedColor[0]"
         :stroke-width="borderWidth"
         :d="`
-          M 5 20 L 5 10 L 12 3  L 60 3 L 68 10
+          M 5 20 L 5 10 L 12 3  L ${cornerBorderWidth * 10 + 50} 3 L ${cornerBorderWidth * 10 + 58} 10
           L ${width - 20} 10 L ${width - 5} 25
           L ${width - 5} ${height - 5} L 20 ${height - 5}
           L 5 ${height - 20} L 5 20
@@ -16,18 +16,18 @@
 
       <path
         fill="transparent"
-        stroke-width="3"
         stroke-linecap="round"
-        stroke-dasharray="10, 5"
+        :stroke-width="`${cornerBorderWidth / 2 + 2}`"
+        :stroke-dasharray="dashArray"
         :stroke="mergedColor[0]"
-        :d="`M 16 9 L 61 9`"
+        :d="`M 16 ${cornerBorderWidth * 1 + 9} L ${dashWidth} ${cornerBorderWidth * 1 + 9}`"
       />
 
       <path
         fill="transparent"
         :stroke="mergedColor[1]"
         :stroke-width="cornerBorderWidth"
-        :d="`M 5 20 L 5 10 L 12 3  L 60 3 L 68 10`"
+        :d="`M 5 20 L 5 10 L 12 3  L ${cornerBorderWidth * 10 + 50} 3 L ${cornerBorderWidth * 10 + 58} 10`"
       />
 
       <path
@@ -64,16 +64,24 @@ export default {
       default: 'transparent'
     },
     backgroundColorOpacity: {
-      type: String,
-      default: '1'
+      type: Number,
+      default: 1
     },
     cornerBorderWidth: {
-      type: String,
-      default: '2'
+      type: Number,
+      default: 2
     },
     borderWidth: {
+      type: Number,
+      default: 1
+    },
+    dashArray: {
       type: String,
-      default: '1'
+      default: "10, 5"
+    },
+    dashWidth: {
+      type: Number,
+      default: 61
     },
   },
   data () {
