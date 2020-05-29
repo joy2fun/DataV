@@ -3,6 +3,7 @@
     <svg class="dv-border-svg-container" :width="width" :height="height">
       <path
         :fill="backgroundColor"
+        :fill-opacity="backgroundColorOpacity"
         :stroke="mergedColor[0]"
         :stroke-width="borderWidth"
         :d="`
@@ -61,6 +62,10 @@ export default {
     backgroundColor: {
       type: String,
       default: 'transparent'
+    },
+    backgroundColorOpacity: {
+      type: String,
+      default: '1'
     },
     cornerBorderWidth: {
       type: String,
