@@ -1,5 +1,15 @@
 [ENGLISH](./README_EN.md)
 
+```html
+<dv-border-box-13
+  backgroundColor="#07B9DE"
+  backgroundColorOpacity=".2"
+  cornerBorderWidth=6
+  dashArray="10,10"
+  dashWidth=70
+>
+```
+
 <p align="center">
   <img src="./icon.png">
 </p>
